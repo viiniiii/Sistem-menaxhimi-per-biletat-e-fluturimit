@@ -1,22 +1,39 @@
 import java.util.Scanner;
 public class MenaxhimPerdoruesi {
-    public static Boolean LogIn(String emri, String fjaleKalimi) {
-        Scanner inputi = new Scanner(System.in);
-
-        // TODO: Implement the login logic
-        // Validate the inputs, check against the database, etc.
-
-        inputi.close();
-        return true; // Placeholder, return the appropriate value based on the login result
+    public static Perdorues LogIn(String emri, String fjaleKalimi) {
+       /*if(emri not in databaze){
+            System.out.println("Perdoruesi me emer " + emri + " nuk ekziston.");
+            System.out.println("Provo te identifikohesh me nje emer tjeter ose te krijosh nje llogari te re.");
+            return null;
+       }else if(fjaleKalimi != fjaleKalimiReal){
+            System.out.println("Fjalekalim i gabuar. Vendosni nje fjalekalim tjeter.");
+            return null;
+       }else{
+            return ObjektPerdorues;
+       } */
+    
+        return null; 
     }
-    public static Boolean SignUp(String emri, String fjaleKalimi1, String fjaleKalimi2, String email) {
-        Scanner inputi = new Scanner(System.in);
-
-        // TODO: Implement the signup logic
-        // Validate the inputs, check against the database, send confirmation email, etc.
-
-        inputi.close();
-        return true; // Placeholder, return the appropriate value based on the signup result
+    public static Perdorues SignUp(String emri, String mbiemri, String fjaleKalimi1, String fjaleKalimi2, String email) {
+        if(fjaleKalimi1 != fjaleKalimi2){
+            System.out.println("Ju keni vendosur dy fjakalime te ndryshme. Ju lutem vendosni dy fjalekalime te njejta.");
+        }
+        int kodiDerguar = Njoftime.sendConfirmationCode(email);
+        System.out.println("Vendosni kodin e konfigurimit te derguar ne email.");
+        long kohaDergimit = System.currentTimeMillis();
+        Scanner input = new Scanner(System.in);
+        int kodi = input.nextInt();
+        input.close();
+        if(kodi != kodiDerguar){
+            System.out.println("Kodi i vendosur nuk eshte i sakte.");
+        }else if(System.currentTimeMillis() - kohaDergimit > 120){
+            System.out.println("Kodi ka skaduar");
+        }else{
+            Perdorues perdorues = new Perdorues(emri, mbiemri, fjaleKalimi1, email);
+            //Perdoruesi futet ne databaze ....
+            return perdorues;
+        }
+        return null; 
     }
     public static void LogOut() {
         // TODO: Implement the logout logic
