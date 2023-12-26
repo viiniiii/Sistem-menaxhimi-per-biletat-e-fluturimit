@@ -77,7 +77,7 @@ public class Main {
                     System.out.println("5. Exit");
 
                     int userChoice = scanner.nextInt();
-                    scanner.nextLine(); // Consume newline
+                    scanner.nextLine();
 
                     switch (userChoice) {
                         case 1:
@@ -90,16 +90,17 @@ public class Main {
                             //viewPastFlights(Perdoruesi);
                             break;
                         case 4:
-                            MenaxhimPerdoruesi.LogOut(); // LogOut
+                            Perdoruesi = MenaxhimPerdoruesi.LogOut(); // LogOut
                             break;
                         case 5:
-                            System.out.println("Exiting program. Goodbye!");
+                            System.out.println("Zgjodhet qe te hiqni programin");
                             System.exit(0);
                         default:
-                            System.out.println("Invalid choice. Please try again.");
+                            System.out.println("Input i gabuar.");
                     }
                 }
             }
+            scanner.close();
         }
     }
 
