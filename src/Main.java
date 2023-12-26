@@ -28,7 +28,7 @@ public class Main {
         Perdorues Perdoruesi = null;
 
         while (true) {
-            clearConsole();
+            //clearConsole();
             System.out.println("1. SignUp");
             System.out.println("2. LogIn");
             System.out.println("3. Exit");
@@ -69,7 +69,7 @@ public class Main {
             // If a user is logged in
             if (Perdoruesi != null) {
                 while (true) {
-                    clearConsole();
+                    //clearConsole();
                     System.out.println("1. Search Flights");
                     System.out.println("2. View Upcoming Flights");
                     System.out.println("3. View Past Flights");
@@ -100,7 +100,7 @@ public class Main {
                     }
                 }
             }
-            scanner.close();
+            //scanner.close();
         }
     }
 
