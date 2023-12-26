@@ -13,13 +13,13 @@ public class Perdorues {
     private List<Fluturim> fluturimet; // Dynamic array with flight objects
 
     // Constructor
-    public Perdorues(String emer, String mbiemer, String fjaleKalim, String email, Date dataKrijimit) {
+    public Perdorues(String emer, String mbiemer, String fjaleKalim, String email) {
         this.id = ++counter; // Generate a unique ID
         this.emer = emer;
         this.mbiemer = mbiemer;
         this.fjaleKalim = fjaleKalim;
         this.email = email;
-        this.dataKrijimit = dataKrijimit;
+        this.dataKrijimit = new Date();
         this.fluturimet = new ArrayList<>(); // Initialize the list
     }
 
