@@ -2,17 +2,18 @@
 public class Njoftime {
 
     // Function to generate a random 6-digit code
-    private static String generateRandomCode() {
+    private static int generateRandomCode() {
         
         int code = (int) Math.random() * 1000000 ; // Generates a random 6-digit number
-        return String.valueOf(code);
+        return code;
     }
 
     // Function to send a confirmation code to the user's email
-    public static void sendConfirmationCode(String userEmail) {
+    public static int sendConfirmationCode(String userEmail) {
         // TODO: Implement logic to send an email with the generated confirmation code
-        String confirmationCode = generateRandomCode();
+        int confirmationCode = generateRandomCode();
         System.out.println("Confirmation code sent to " + userEmail + ": " + confirmationCode);
+        return confirmationCode;
     }
 
     // Function to send flight information to the user
