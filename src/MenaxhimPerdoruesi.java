@@ -15,7 +15,7 @@ public class MenaxhimPerdoruesi {
         return null; 
     }
     public static Perdorues SignUp(String emri, String mbiemri, String fjaleKalimi1, String fjaleKalimi2, String email) {
-        if(fjaleKalimi1 != fjaleKalimi2){
+        if(!fjaleKalimi1.equals(fjaleKalimi2)){
             System.out.println("Ju keni vendosur dy fjakalime te ndryshme. Ju lutem vendosni dy fjalekalime te njejta.");
         }else if(!(fjalekalimIVlefshem(fjaleKalimi1))){
             System.out.println("Fjalekalimi duhet te permbaje te pakten 8 karaktere dhe duhet te permbaje numra");
@@ -25,7 +25,6 @@ public class MenaxhimPerdoruesi {
             long kohaDergimit = System.currentTimeMillis();
             Scanner input = new Scanner(System.in);
             int kodi = input.nextInt();
-            input.close();
             if(kodi != kodiDerguar){
                 System.out.println("Kodi i vendosur nuk eshte i sakte.");
             }else if(System.currentTimeMillis() - kohaDergimit > 120){
@@ -50,7 +49,7 @@ public class MenaxhimPerdoruesi {
                 break;
             }
         }
-        return fjalekalimi.length() < 8 && permbanNumra;
+        return fjalekalimi.length() >= 8 && permbanNumra;
     }
 }
 
