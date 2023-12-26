@@ -25,7 +25,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Perdorues currentPerdorues = null;
+        Perdorues Perdoruesi = null;
 
         while (true) {
             clearConsole();
@@ -39,21 +39,35 @@ public class Main {
             switch (choice) {
                 case 1:
                     // SignUp
-                    currentPerdorues = signUp();
+                    System.out.print("Vendosni emrin: ");
+                    String emri = scanner.nextLine();
+                    System.out.print("\nVendosni mbiemrin: ");
+                    String mbiemri = scanner.nextLine();
+                    System.out.print("\nVendosni fjalekalimin: ");
+                    String fjaleKalimi1 = scanner.nextLine();
+                    System.out.print("\nVendosni perseri fjalekalimin: ");
+                    String fjaleKalimi2 = scanner.nextLine();
+                    System.out.print("\nVendosni emailin: ");
+                    String email = scanner.nextLine();
+                    Perdoruesi = MenaxhimPerdoruesi.SignUp(emri, mbiemri, fjaleKalimi1, fjaleKalimi2, email);
                     break;
                 case 2:
                     // LogIn
-                    currentPerdorues = logIn();
+                    System.out.print("Vendosni emrin: ");
+                    String emriPerdoruesit = scanner.nextLine();
+                    System.out.print("\nVendosni fjalekalimin: ");
+                    String fjaleKalimi = scanner.nextLine();
+                    Perdoruesi = MenaxhimPerdoruesi.LogIn(emriPerdoruesit,fjaleKalimi);
                     break;
                 case 3:
-                    System.out.println("Exiting program. Goodbye!");
+                    System.out.println("Ju zgjodhet te hiqni programin.");
                     System.exit(0);
                 default:
-                    System.out.println("Invalid choice. Please try again.");
+                    System.out.println("Input i gabuar provo perseri.");
             }
 
             // If a user is logged in
-            if (currentPerdorues != null) {
+            if (Perdoruesi != null) {
                 while (true) {
                     clearConsole();
                     System.out.println("1. Search Flights");
@@ -70,13 +84,13 @@ public class Main {
                             Kerko_Fluturim.searchFlights(null);
                             break;
                         case 2:
-                            viewUpcomingFlights(currentPerdorues);
+                            //viewUpcomingFlights(Perdoruesi);
                             break;
                         case 3:
-                            viewPastFlights(currentPerdorues);
+                            //viewPastFlights(Perdoruesi);
                             break;
                         case 4:
-                            currentPerdorues = null; // LogOut
+                            MenaxhimPerdoruesi.LogOut(); // LogOut
                             break;
                         case 5:
                             System.out.println("Exiting program. Goodbye!");
@@ -90,6 +104,7 @@ public class Main {
     }
 
     private static void clearConsole() {
-        // TODO: Implement logic to clear the console
+        System.out.print("\033[H\033[2J");  
+        System.out.flush(); 
     }
 }
